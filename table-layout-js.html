@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabel using DIV with tooltip</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .table_wrapper_div {
+        padding: 50px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        text-transform: capitalize;
+        padding: 5px 20px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table_wrapper_div"></div>
+
+    <script>
+      var data = [
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "43f5940bfd6881b2f8e0c434a3a96f229a8a1054",
+          fields: {
+            date: "2022-03-06",
+            currency: "USD",
+            rate: 1.0929,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "1787f87bcf029a223e001d6f88750fe0ca6772d1",
+          fields: {
+            date: "2022-03-06",
+            currency: "AUD",
+            rate: 1.4872,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "756f0f685431156ad1d3bc24b91d574c5a6f00fa",
+          fields: {
+            date: "2022-03-06",
+            currency: "CAD",
+            rate: 1.3937,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "58e15a0abb6fc40d08a10ae0f58fc2c9525b267a",
+          fields: {
+            date: "2022-03-06",
+            currency: "GBP",
+            rate: 0.8238800000000001,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "4f7879e2c8e97bc11ae065f748a2e13f2cd73c71",
+          fields: {
+            date: "2022-03-06",
+            currency: "SEK",
+            rate: 10.7935,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "e3f948548d1479dff8b10aeaaf0c247e17b70897",
+          fields: {
+            date: "2022-03-06",
+            currency: "MXN",
+            rate: 22.7543,
+          },
+        },
+      ];
+
+      const tableDiv = document.querySelector(".table_wrapper_div");
+      const table = document.createElement("table");
+      const tableHead = document.createElement("thead");
+      const tableBody = document.createElement("tbody");
+
+      const tr = document.createElement("tr");
+      Object.keys(data[0].fields).forEach((key) => {
+        const th = document.createElement("th");
+        th.innerHTML = key;
+        tr.appendChild(th);
+      });
+
+      tableHead.appendChild(tr);
+      table.appendChild(tableHead);
+
+      for (const row of data) {
+        const tr = document.createElement("tr");
+        tr.setAttribute("data-id", row.recordid);
+        tr.setAttribute("data-set-id", row.datasetid);
+
+        const dateTd = document.createElement("td");
+        const currencyTd = document.createElement("td");
+        const rateTd = document.createElement("td");
+
+        dateTd.innerHTML = row.fields.date;
+        currencyTd.innerHTML = row.fields.currency;
+        rateTd.innerHTML = row.fields.rate;
+
+        tr.appendChild(dateTd);
+        tr.appendChild(currencyTd);
+        tr.appendChild(rateTd);
+        tableBody.appendChild(tr);
+      }
+
+      table.appendChild(tableBody);
+      tableDiv.appendChild(table);
+    </script>
+  </body>
+</html>

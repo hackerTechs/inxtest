@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabel using DIV with tooltip</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 50px;
+        background-color: #dd04ee;
+      }
+
+      .table_wrapper_div {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 50px;
+        column-gap: 50px;
+      }
+
+      .table_wrapper_div .table_data_div {
+        border: 1px solid #fff;
+        color: #fff;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        height: 150px;
+        position: relative;
+      }
+
+      .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        right: -48px;
+        top: -24px;
+        z-index: 1;
+      }
+
+      .table_data_div:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      .note {
+        margin-top: 24px;
+        font-size: 16px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table_wrapper_div">
+      <div class="table_data_div tooltip">
+        Header 1
+        <span class="tooltiptext">Tooltip 1</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Header 2
+        <span class="tooltiptext">Tooltip 2</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Header 3
+        <span class="tooltiptext">Tooltip 3</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Row 1
+        <span class="tooltiptext">Tooltip 4</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Row 1
+        <span class="tooltiptext">Tooltip 5</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Row 1
+        <span class="tooltiptext">Tooltip 6</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Row 2
+        <span class="tooltiptext">Tooltip 7</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Row 2
+        <span class="tooltiptext">Tooltip 8</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Row 2
+        <span class="tooltiptext">Tooltip 9</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Row 3
+        <span class="tooltiptext">Tooltip 10</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Row 3
+        <span class="tooltiptext">Tooltip 11</span>
+      </div>
+      <div class="table_data_div tooltip">
+        Row 3
+        <span class="tooltiptext">Tooltip 12</span>
+      </div>
+    </div>
+
+    <div class="note">Note: Hover for tooltip</div>
+  </body>
+</html>
